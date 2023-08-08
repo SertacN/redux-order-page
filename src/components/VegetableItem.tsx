@@ -1,18 +1,27 @@
-type VegetableItemProps = {
-  img: string;
-  title: string;
-  quantity: number;
-  price: string;
-  id: string;
-};
-type KeyPropsType = {
-  key: number;
-};
+import { useAppDispatch } from "../hook";
+import { increase, decrease } from "../control/cardSlice";
+import { VegetableItemProps } from "../appType";
 
-type MergeType = VegetableItemProps | KeyPropsType;
-
-function VegetableItem({ img, title, quantity, price, id }: MergeType) {
-  return <div>VegetableItem</div>;
+function VegetableItem({
+  img,
+  title,
+  quantity,
+  price,
+  id,
+}: VegetableItemProps) {
+  const dispatch = useAppDispatch();
+  return (
+    <div className="itemDiv">
+      <h2>{title}</h2>
+      <img src={img} alt="" />
+      <p>Fiyat: {price} TL</p>
+      <div className="buttonDiv">
+        <button onClick={() => dispatch(increase(id))}>+</button>
+        <p>{quantity}</p>
+        <button onClick={() => dispatch(decrease(id))}>-</button>
+      </div>
+    </div>
+  );
 }
 
 export default VegetableItem;

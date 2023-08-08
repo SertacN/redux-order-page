@@ -1,6 +1,7 @@
 import { useAppSelector, useAppDispatch } from "../hook";
 import VegetableItem from "./VegetableItem";
-import { clearCard } from "../control/cardSlice";
+import { clearCard, addCards } from "../control/cardSlice";
+import { VegetableItemProps } from "../appType";
 
 function VegetableList() {
   const { cardItem, quantity, total } = useAppSelector((store) => store.card);
@@ -9,27 +10,40 @@ function VegetableList() {
   return (
     <>
       {quantity < 1 ? (
-        <section>
+        <section className="sectionContainer">
           <header>
-            <h2>Order</h2>
-            <h4>Empty</h4>
+            <h2>Sipariş</h2>
+            <h4>Sepet Boş</h4>
+            <button onClick={() => dispatch(addCards())}>Ekle</button>
           </header>
         </section>
       ) : (
         <section>
           <header>
-            <h2>Order</h2>
+            <h2 className="orderHeader">Sipariş</h2>
           </header>
-          <div>
-            {cardItem.map((item, i) => {
-              return <VegetableItem key={i} {...item} />;
+          <div className="itemContainer">
+            {cardItem.map((item: VegetableItemProps) => {
+              return (
+                <VegetableItem
+                  key={item.id}
+                  img={item.img}
+                  title={item.title}
+                  quantity={item.quantity}
+                  price={item.price}
+                  id={item.id}
+                />
+              );
             })}
           </div>
           <footer>
             <hr />
             <div>
               <h4>
-                Toplam Tutar <span>{total} TL</span>
+                Toplam Tutar{" "}
+                <i>
+                  <span style={{ fontSize: "1.2rem" }}>{total} TL</span>
+                </i>
               </h4>
             </div>
             <button

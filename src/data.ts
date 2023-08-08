@@ -9,28 +9,28 @@ const data = [
     img: Domates,
     title: "Domates",
     quantity: 1,
-    price: "5",
+    price: 5,
   },
   {
     id: "2",
     img: Havuc,
     title: "Havuç",
     quantity: 1,
-    price: "7",
+    price: 7,
   },
   {
     id: "3",
     img: Patates,
     title: "Patates",
     quantity: 1,
-    price: "4",
+    price: 4,
   },
   {
     id: "4",
     img: Sogan,
     title: "Soğan",
     quantity: 1,
-    price: "8",
+    price: 8,
   },
 ];
 

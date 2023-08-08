@@ -2,26 +2,23 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+<i>Used Single Slicer. TypeScript + Redux</i>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<h3>Functions:</h3>
 
-## Expanding the ESLint configuration
+- You can increase and decrease the quantities of the items in the cart.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- The total price of each item is visible in the footer.
 
-- Configure the top-level `parserOptions` property like this:
+- If the quantity of a product is less than 1, it is removed from the page.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+- The total number of items in the cart is displayed above the 'cart' icon.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- As you increase the quantity of items, the total cost adds up.
+
+<h3>CSS:</h3>
+<p>
+Custom App.css, index.css
+</p>
+
+https://github.com/SertacN
