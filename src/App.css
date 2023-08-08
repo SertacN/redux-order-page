@@ -1,0 +1,7 @@
+.navMainContainer {
+  display: flex;
+  justify-content: space-around;
+  background: green;
+  color: white;
+  padding: 10px 0;
+}
