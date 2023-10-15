@@ -6,14 +6,12 @@ import type { RootState } from "../store";
 type FruitState = {
   search: string;
   data: [];
-  value: number;
 };
 
 // Define the initial state using that type
 const initialState: FruitState = {
   search: "",
   data: [],
-  value: 0,
 };
 
 export const fruitSlice = createSlice({
@@ -22,9 +20,9 @@ export const fruitSlice = createSlice({
   reducers: {},
 });
 
-// export const {} = formSlice.actions;
+// export const {} = fruitSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
-export const selectFruit = (state: RootState) => state.fruit.value;
+export const selectFruit = (state: RootState) => state.fruit;
 
 export default fruitSlice.reducer;
