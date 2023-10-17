@@ -22,11 +22,14 @@ function FruitForm() {
   };
 
   return (
-    <div className="fruitForm panel">
+    <div className="container.is-fullhd panel mx-5 p-3 mt-5">
       <h4 className="subtitle is-3">Meyve Ekle</h4>
-      <form onSubmit={handleSubmit}>
-        <div className="field-group">
-          <div className="field">
+      <form
+        className="is-flex is-justify-content-space-between is-align-items-center"
+        onSubmit={handleSubmit}
+      >
+        <div className="field-group is-flex">
+          <div className="field mr-5">
             <label className="label">Ad</label>
             <input
               className="input is-expanded"
@@ -34,7 +37,7 @@ function FruitForm() {
               value={name}
             />
           </div>
-          <div className="field">
+          <div className="field mr-5">
             <label className="label">Açıklama</label>
             <textarea
               className="input is-expanded"
@@ -42,7 +45,7 @@ function FruitForm() {
               value={description}
             />
           </div>
-          <div className="field">
+          <div className="field mr-5">
             <label className="label">Fiyat</label>
             <input
               className="input is-expanded"
