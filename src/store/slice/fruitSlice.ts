@@ -32,10 +32,14 @@ export const fruitSlice = createSlice({
         id: nanoid(),
       });
     },
+    deleteFruit: (state, action: PayloadAction<string | undefined>) => {
+      const fruitId = action.payload;
+      state.data = state.data.filter((item) => item.id !== fruitId);
+    },
   },
 });
 
-export const { addFruit } = fruitSlice.actions;
+export const { addFruit, deleteFruit } = fruitSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectFruit = (state: RootState) => state.fruit;
