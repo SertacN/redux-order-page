@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
+import { addFruit } from "./fruitSlice";
 
 // Define a type for the slice state
 type FormState = {
@@ -31,6 +32,13 @@ export const formSlice = createSlice({
         state.price = 0;
       }
     },
+  },
+  extraReducers: (builder): void => {
+    builder.addCase(addFruit, (state) => {
+      state.name = "";
+      state.description = "";
+      state.price = 0;
+    });
   },
 });
 

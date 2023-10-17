@@ -4,15 +4,27 @@ import {
   changedDescription,
   changedPrice,
 } from "../store/slice/formSlice";
+import { addFruit } from "../store/slice/fruitSlice";
 
 function FruitForm() {
   const { name, description, price } = useAppSelector((store) => store.form);
   const dispatch = useAppDispatch();
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    dispatch(
+      addFruit({
+        name,
+        description,
+        price,
+      })
+    );
+  };
+
   return (
     <div className="fruitForm panel">
       <h4 className="subtitle is-3">Meyve Ekle</h4>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="field-group">
           <div className="field">
             <label className="label">Ad</label>

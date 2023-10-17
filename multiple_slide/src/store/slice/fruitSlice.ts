@@ -2,10 +2,16 @@ import { PayloadAction, createSlice, nanoid } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
 
 // Define a type for the slice state
+type Fruit = {
+  name: string;
+  description: string;
+  price: number;
+  id?: string;
+};
 
 type FruitState = {
   search: string;
-  data: [];
+  data: Fruit[];
 };
 
 // Define the initial state using that type
@@ -17,10 +23,19 @@ const initialState: FruitState = {
 export const fruitSlice = createSlice({
   name: "fruit",
   initialState,
-  reducers: {},
+  reducers: {
+    addFruit: (state, action: PayloadAction<Fruit>): void => {
+      state.data.push({
+        name: action.payload.name,
+        description: action.payload.description,
+        price: action.payload.price,
+        id: nanoid(),
+      });
+    },
+  },
 });
 
-// export const {  } = fruitSlice.actions;
+export const { addFruit } = fruitSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectFruit = (state: RootState) => state.fruit;
