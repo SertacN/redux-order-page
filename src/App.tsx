@@ -8,8 +8,8 @@ function App() {
   return (
     <div>
       <FruitForm />
-      <FruitList />
       <FruitSearch />
+      <FruitList />
       <FruitTotalValue />
     </div>
   );

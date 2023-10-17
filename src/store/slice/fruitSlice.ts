@@ -24,7 +24,7 @@ export const fruitSlice = createSlice({
   name: "fruit",
   initialState,
   reducers: {
-    addFruit: (state, action: PayloadAction<Fruit>): void => {
+    addFruit: (state, action: PayloadAction<Fruit>) => {
       state.data.push({
         name: action.payload.name,
         description: action.payload.description,
@@ -36,10 +36,13 @@ export const fruitSlice = createSlice({
       const fruitId = action.payload;
       state.data = state.data.filter((item) => item.id !== fruitId);
     },
+    searchFruit: (state, action: PayloadAction<string>) => {
+      state.search = action.payload;
+    },
   },
 });
 
-export const { addFruit, deleteFruit } = fruitSlice.actions;
+export const { addFruit, deleteFruit, searchFruit } = fruitSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectFruit = (state: RootState) => state.fruit;
