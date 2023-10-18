@@ -24,7 +24,7 @@ export const fruitSlice = createSlice({
   name: "fruit",
   initialState,
   reducers: {
-    addFruit: (state, action: PayloadAction<Fruit>) => {
+    addFruit: (state, action: PayloadAction<Fruit>): void => {
       state.data.push({
         name: action.payload.name,
         description: action.payload.description,
@@ -32,11 +32,11 @@ export const fruitSlice = createSlice({
         id: nanoid(),
       });
     },
-    deleteFruit: (state, action: PayloadAction<string | undefined>) => {
+    deleteFruit: (state, action: PayloadAction<string | undefined>): void => {
       const fruitId = action.payload;
       state.data = state.data.filter((item) => item.id !== fruitId);
     },
-    searchFruit: (state, action: PayloadAction<string>) => {
+    searchFruit: (state, action: PayloadAction<string>): void => {
       state.search = action.payload;
     },
   },
