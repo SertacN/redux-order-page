@@ -1,4 +1,3 @@
-import "./App.css";
 import FruitForm from "./components/FruitForm";
 import FruitList from "./components/FruitList";
 import FruitSearch from "./components/FruitSearch";
